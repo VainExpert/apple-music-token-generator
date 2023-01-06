@@ -1,11 +1,6 @@
 # apple-music-token-generator
 
-Some steps that help getting started creating the Apple Music JWT tokens needed to use MusicKit on iOS
-
-## Recent Change
-
-Added a NodeJS version.
-
+Some steps that help getting started creating the Apple Music JWT tokens needed to use MusicKit and ShazamKit on iOS / Windows.
 
 ## Getting Started
 
@@ -15,55 +10,27 @@ First, you must follow the instructions at [Apple Music API Reference](https://d
 
 Next, follow the instructions below to help create your developer token in the JSON Web Token format.
 
-
 ## Prerequisites
 
-A developer machine running macOS Sierra (10.12.5)
-You will need to run Terminal and have root access, or can run sudo
+You will need to run Terminal and have root access.
 After following the instructions at the URL above, you should now have 3 pieces of data:
 
-- a MusicKit private key in a *.p8 file
+- a MusicKit / ShazamKit private key in a *.p8 file
 - a 10-digit key identifier in your Apple Developer account
 - your 10-digit Apple Developer Account Team ID
 
-
 ## Installing (Python)
 
-### Step 1
-
-### Easy method:
-
-Run the following on the command line:
-```
-sudo easy_install pip
-```
-
-### Old method: 
-
-Download the Python package manager from [pip](https://pip.pypa.io/en/stable/installing/)
+With the Python Package Manager (pip) install the Python JWT library
 
 ```
-Download the get-pip.py script from https://pip.pypa.io/en/stable/installing/
-```
-
-Install Python package manager
-
-```
-sudo python get-pip.py
-```
-
-### Step 2
-
-Now that the Python Package Manager (pip) is installed, use it to install the Python JWT library
-
-```
-sudo pip install pyjwt
+> pip install pyjwt
 ```
 
 Add the necessary Cryptography package
 
 ```
-sudo pip install cryptography
+> pip install cryptography
 ```
 
 All of that was just housekeeping to get you ready for the main event... actually generating the token.
@@ -71,10 +38,10 @@ All of that was just housekeeping to get you ready for the main event... actuall
 Use you favourite editor to customize the script that will create your token.
 
 ```
-open -e music_token.py
+> nano music_token.py
 ```
 
-Copy your MusicKit private key from the .p8 file you generated and downloaded.
+Copy your MusicKit / ShazamKit private key from the .p8 file you generated and downloaded.
 
 ```
 secret = """-----BEGIN PRIVATE KEY-----
@@ -100,56 +67,17 @@ Run the script
 > python music_token.py
 ```
 
-The script will output a sample curl command you can run to see if you were successful.
-
-```
-
-```
-
-## Installing and Running in Node
-
-### System requirements
-Ensure you have a current version of Node and npm running on your system.
-
-### Installation
-Download the repo and run ```npm install``` in the project directory to install dependancies.
-
-### Configuration
-The project supports ```.env``` and you can add the following to your own ```.env``` file in the project directory.
-
-```
-TEAM_ID=[YOUR_TEAM_ID_FROM_APPLE]
-KEY_ID=[YOUR_KEY_ID_FROM_APPLE]
-```
-
-### Running
-There are two ways of using the Node create_token.js package:
-
-In the project directory, run ```npm run generate``` and pass in the filename to your .p8 private key file.
-
-** *OR* **
-
-Simply run ```npm run generate``` follow the on screen prompts.
-
-- provide the file path/name
-- provide your Team ID
-- provide your Key ID
-
-
-### Testing
-The script has built in tests and will display test results during runtime.
-If you wish to skip the validation step (i.e. 'offline mode'), configure the ```VALIDATE_TOKEN``` flag in create_token.js
+The script will output a sample curl command you can run to see if you were successful (only for MusicKit).
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-
 ## Authors
 
-* **Anonymous Apple Marketing Guy** - *Initial work* - [Anonymous]
-* **Darren Baptiste** - *First Commit* - [Pelau Imagineering](https://github.com/pelauimagineering)
-* **Nate Blake** - *NodeJS version* - [n8blake](https://n8blake.com)
+- **Anonymous Apple Marketing Guy** - *Initial work* - [Anonymous]
+- **Darren Baptiste** - *First Commit* - [Pelau Imagineering](https://github.com/pelauimagineering)
+- **VainExpert** - *Upgrade to Python 3 and Individualization* - [VainExpert](https://github.com/VainExpert)
 
 ## License
 
@@ -157,5 +85,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to the folks in the MusicKit Lab at WWDC17
-
+- Hat tip to the folks in the MusicKit Lab at WWDC17
+- Hat tip also to the folks in the ShazamKit Lab at WWDC21
