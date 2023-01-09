@@ -10,7 +10,7 @@ teamId = "1234567890"
 alg = 'ES256'
 
 time_now = datetime.datetime.now()
-time_expired = datetime.datetime.now() + datetime.timedelta(days=365)
+time_expired = datetime.datetime.now() + datetime.timedelta(days=180)
 
 headers = {
 	"alg": alg,
