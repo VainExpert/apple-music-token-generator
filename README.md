@@ -23,13 +23,13 @@ After following the instructions at the URL above, you should now have 3 pieces 
 
 With the Python Package Manager (pip) install the Python JWT library
 
-```
+```bash
 > pip install pyjwt
 ```
 
 Add the necessary Cryptography package
 
-```
+```bash
 > pip install cryptography
 ```
 
@@ -37,33 +37,41 @@ All of that was just housekeeping to get you ready for the main event... actuall
 
 Use you favourite editor to customize the script that will create your token.
 
-```
+```bash
 > nano music_token.py
+```
+
+Substitute the following values in your env.example-file.
+
+```bash
+> nano env.example
 ```
 
 Copy your MusicKit / ShazamKit private key from the .p8 file you generated and downloaded.
 
-```
-secret = """-----BEGIN PRIVATE KEY-----
+```env
+PRIVKEY="""-----BEGIN PRIVATE KEY-----
 REPLACE-THIS-WITH-YOUR-OWN-PRIVATE-KEY
 -----END PRIVATE KEY-----"""
 ```
 
-Substitute your 10-digit key identifier (kid) as found in your developer account
+Substitute your 10-digit key identifier (kid) as found in your developer account:
 
-```
-keyId = "9876543210"
+```env
+KEYID="9876543210"
 ```
 
-Substitute your 10-digit Apple Developer Team ID
+Substitute your 10-digit Apple Developer Team ID:
 
+```env
+TEAMID = "0123456789"
 ```
-teamId = "0123456789"
-```
+
+Save the file as .env.
 
 Run the script
 
-```
+```bash
 > python music_token.py
 ```
 

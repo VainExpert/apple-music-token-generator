@@ -1,12 +1,11 @@
 import datetime
 import jwt
+import os
 
 
-secret = """-----BEGIN PRIVATE KEY-----
-ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123
------END PRIVATE KEY-----"""
-keyId = "0123456789"
-teamId = "1234567890"
+secret = os.environ['PRIVKEY']
+keyId = os.environ['KEYID']
+teamId = os.environ['TEAMID']
 alg = 'ES256'
 
 time_now = datetime.datetime.now()
@@ -32,5 +31,5 @@ if __name__ == "__main__":
 	print(token)
 
 	print("----CURL----")
-	print("curl -v -H \"Authorization: Bearer %s\" \"https://api.music.apple.com/v1/catalog/us/artists/36954\" " % (token))
+	print("curl -v -H \'Authorization: Bearer %s\' \"https://api.music.apple.com/v1/catalog/us/artists/36954\" " % (token))
 
