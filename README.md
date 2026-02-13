@@ -21,16 +21,10 @@ After following the instructions at the URL above, you should now have 3 pieces 
 
 ## Installing (Python)
 
-With the Python Package Manager (pip) install the Python JWT library
+With the Python Package Manager (pip) install necessary Python libraries
 
 ```bash
-> pip install pyjwt
-```
-
-Add the necessary Cryptography package
-
-```bash
-> pip install cryptography
+> pip install -r requirements.txt
 ```
 
 All of that was just housekeeping to get you ready for the main event... actually generating the token.
