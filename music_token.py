@@ -1,11 +1,19 @@
 import datetime
 import jwt
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 
+basepath = Path()
+basedir = str(basepath.cwd())
+# Load the environment variables
+envars = basepath.cwd() / '.env'
+load_dotenv(envars)
+print(os.environ)
 
-secret = os.environ['PRIVKEY']
-keyId = os.environ['KEYID']
-teamId = os.environ['TEAMID']
+secret = os.getenv('PRIVKEY')
+keyId = os.getenv('KEYID')
+teamId = os.getenv('TEAMID')
 alg = 'ES256'
 
 time_now = datetime.datetime.now()
